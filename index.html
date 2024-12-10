@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Tester</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background: #1a1a1a;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      max-width: 600px;
+      width: 90%;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #4fc3f7;
+    }
+    .quote {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      resize: none;
+      outline: none;
+      background: #333;
+      color: #fff;
+    }
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #4caf50;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #388e3c;
+    }
+    .results {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #e1e1e1;
+    }
+    .results p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Typing Tester</h1>
+    <div class="quote" id="quote">Click "Start Test" to begin.</div>
+    <textarea id="input" placeholder="Type the above text here..." disabled></textarea>
+    <button class="btn" id="start-btn">Start Test</button>
+    <div class="results" id="results"></div>
+  </div>
+  <script src="main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(() => console.log('Service Worker Registered'))
+        .catch(error => console.error('Service Worker Registration Failed:', error));
+    }
+  </script>
+</body>
+</html>
